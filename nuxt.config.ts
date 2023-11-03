@@ -1,7 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss'],
+  modules: [
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/supabase',
+  ],
+
   // @ts-ignore
   components: [
     {
@@ -19,4 +23,12 @@ export default defineNuxtConfig({
       prefix: ''
     },
   ],
+
+  supabase: {
+    redirectOptions: {    
+      login: '/auth',    
+      callback: '/confirm',    
+      exclude: [''],  
+    }
+  }
 })
