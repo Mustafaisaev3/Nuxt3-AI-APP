@@ -5,7 +5,7 @@
         <Card>
           <template #title> </template>
           <CardTitle>
-            <div class="text-center py-4">Welcome to MultiGeniX</div>
+            <div class="text-center py-4">Welcome to AiX</div>
           </CardTitle>
           <!-- <template #subtitle> Card subtitle </template> -->
           <CardContent>

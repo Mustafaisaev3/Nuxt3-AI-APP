@@ -18,6 +18,7 @@
     "@nuxtjs/tailwindcss": "^6.8.1",
     "@supabase/auth-ui-shared": "^0.1.8",
     "nuxt": "^3.8.0",
+    "nuxt-icon": "^0.6.1",
     "typescript": "^5.2.2",
     "vue": "^3.3.7",
     "vue-router": "^4.2.5"
@@ -26,6 +27,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "lucide-vue-next": "^0.291.0",
+    "radix-vue": "^1.1.1",
     "tailwind-merge": "^2.0.0",
     "tailwindcss-animate": "^1.0.7"
   }
