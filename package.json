@@ -27,6 +27,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "lucide-vue-next": "^0.291.0",
+    "openai": "^4.15.0",
     "radix-vue": "^1.1.1",
     "tailwind-merge": "^2.0.0",
     "tailwindcss-animate": "^1.0.7"
