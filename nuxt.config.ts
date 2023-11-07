@@ -34,7 +34,7 @@ export default defineNuxtConfig({
 
   supabase: {
     redirectOptions: {    
-      login: '/music',    
+      login: '/video',    
       callback: '/confirm',    
       exclude: [''],  
     }
