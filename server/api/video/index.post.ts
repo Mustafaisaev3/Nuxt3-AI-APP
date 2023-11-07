@@ -1,4 +1,6 @@
 import Replicate from "replicate";
+import { checkApiLimit, incrementApiLimit, protectedRoute } from '~/server/utils';
+import { User } from "~/server/types";
 
 const config = useRuntimeConfig();
 
@@ -8,7 +10,10 @@ const replicate = new Replicate({
 
 export default defineEventHandler(async (event) => {
 
+    const user = event.context.user as User
+
     const { prompt } = await readBody(event);
+
     if (!replicate.auth) {
         throw createError({
             statusCode: 500,
@@ -24,12 +29,24 @@ export default defineEventHandler(async (event) => {
 
     }
 
+    const freeTrial = await checkApiLimit(user.id);
+
+    if (!freeTrial) {
+        throw createError({
+            statusCode: 403,
+            statusMessage: 'Free trial has expired. Please upgrade to pro.',
+        })
+
+    }
+
     const model = "anotherjesse/zeroscope-v2-xl:9f747673945c62801b13b84701c783929c0ee784e4748ec062204894dda1a351"
     const response = await replicate.run(model, {
         input: {
             prompt
         }
     })
+
+    await incrementApiLimit(user.id);
 
     return response
 
