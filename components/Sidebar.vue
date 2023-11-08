@@ -33,7 +33,7 @@
             <!-- Progress -->
             <Progress v-model="progress" class="w-full" />
           </div>
-          <Button class="w-full" variant="premium">
+          <Button class="w-full" variant="premium" @click="proModal.onOpen">
             Upgrade
             <Icon name="lucide:zap" class="w-4 h-4 ml-2 fill-white" />
           </Button>
@@ -45,6 +45,8 @@
 
 <script setup lang="ts">
 import { dashboardRoutes } from '../utils/index'
+import useProModal from '@/store/useProModal';
+const proModal = useProModal();
 const routes = ref(dashboardRoutes);
 
 const currentRoute = useRoute();

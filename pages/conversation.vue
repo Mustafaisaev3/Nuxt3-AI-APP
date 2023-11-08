@@ -67,6 +67,9 @@
   </template>
   
 <script setup lang="ts">
+  import useProModal from '@/store/useProModal';
+  const proModal = useProModal();
+
   interface ChatCompletionRequestMessage {
     role: 'user' | 'assistant';
     content: string;
@@ -90,6 +93,9 @@
     });
     if (error.value) {
       console.log(error.value.statusMessage);
+      if (error.value.statusCode === 403) {
+      proModal.onOpen();
+    }
     }
     if (data.value) {
       messages.value = [
