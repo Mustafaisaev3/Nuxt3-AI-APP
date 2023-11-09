@@ -2,6 +2,7 @@ import { H3Event } from 'h3';
 
 import { serverSupabaseUser } from '#supabase/server';
 import { PrismaClient } from '@prisma/client';
+import Stripe from 'stripe'
 
 const prisma = new PrismaClient();
 export const MAX_COUNT = 5
@@ -68,3 +69,12 @@ export const getApiLimitCount = async (userId: string) => {
     return userApiLimit.count;
 };
 
+const config = useRuntimeConfig();
+export const stripe = new Stripe(config.stripeSecret, {
+    apiVersion: '2023-10-16',
+    typescript: true
+});
+
+export function absoluteUrl(path: string) {
+    return `${config.appUrl}${path}`
+}

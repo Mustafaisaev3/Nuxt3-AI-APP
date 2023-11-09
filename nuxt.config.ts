@@ -43,6 +43,12 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     openaiKey: '',
-    replicateKey: ''
+    replicateKey: '',
+    stripeSecret: '',
+    stripeWebhookSecret: '',
+    appUrl: '',
+    public: {
+      publicStripeKey: ''
+    },
   }
 })

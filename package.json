@@ -37,6 +37,7 @@
     "prisma": "^5.5.2",
     "radix-vue": "^1.1.1",
     "replicate": "^0.21.0",
+    "stripe": "^14.3.0",
     "tailwind-merge": "^2.0.0",
     "tailwindcss-animate": "^1.0.7"
   }
